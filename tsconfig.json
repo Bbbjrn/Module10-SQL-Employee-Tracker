@@ -1,24 +1,35 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    "rootDir": "src",
-    "outDir": "dist",
+    /* Basic Options */
+    "target": "ES6",                                // Target ECMAScript version to compile to
+    "module": "commonjs",                            // Node.js uses CommonJS module system
+    "lib": ["ES6"],                                  // Include standard library (ES6 features)
+    "outDir": "./dist",                              // Output directory for compiled JavaScript files
+    "rootDir": "./src",                              // Root directory of your TypeScript files
+    "strict": true,                                  // Enable strict type-checking options
+    "esModuleInterop": true,                         // Enable ES module interoperability
+    "moduleResolution": "node",                      // TypeScript should resolve modules like Node.js
+    "skipLibCheck": true,                            // Skip type checking for node_modules
+    "forceConsistentCasingInFileNames": true,        // Disallow inconsistent casing in imports
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
+    /* Source Map Options */
+    "sourceMap": true,                               // Generates corresponding .map file to debug with TypeScript source
 
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    /* Additional Checks */
+    "noImplicitAny": true,                           // Raise error on expressions and declarations with an implied 'any' type
+    "strictNullChecks": true,                        // Enable strict null checks
+    "strictFunctionTypes": true,                     // Ensure function parameter types are consistent
+    "strictPropertyInitialization": true,            // Ensure class properties are initialized correctly
+    "noUnusedLocals": true,                          // Report errors on unused locals
+    "noUnusedParameters": true,                      // Report errors on unused parameters
+    "noImplicitReturns": true,                       // Report errors when not all code paths in a function return a value
+    "noFallthroughCasesInSwitch": true               // Report errors for fallthrough cases in switch statements
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*.ts"                                    // Include all TypeScript files under the src folder
+  ],
+  "exclude": [
+    "node_modules",                                  // Exclude node_modules from the compilation
+    "dist"                                           // Exclude dist folder from the compilation
+  ]
 }

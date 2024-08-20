@@ -9,7 +9,7 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
     host: process.env.DB_HOST,
     database: process.env.DB_NAME,
-    port: process.env.DB_PORT,
+    port: 5432,
 });
 
 const connectToDb = async () => {
@@ -18,7 +18,7 @@ const connectToDb = async () => {
         console.log('Connected to database');
     } catch (err) {
         console.log('Error connecting to database', err);
-        Process.exit(1);
+        process.exit(1);
  }
 };
 
