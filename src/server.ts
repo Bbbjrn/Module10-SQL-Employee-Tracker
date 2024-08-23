@@ -1,13 +1,13 @@
 import { pool } from './connection.js';
 import { QueryResult } from 'pg';
 
-export const getDepartments = async (): Promise<any[]> => {
+export const getDepartments = async () => {
   const sql = 'SELECT * FROM departments'; 
   const result: QueryResult = await pool.query(sql);
   return result.rows;
 };
 
-export const getRoles = async (): Promise<any[]> => {
+export const getRoles = async () => {
   const sql = `
     SELECT roles.id, roles.title, roles.salary, departments.name AS department
     FROM roles
@@ -17,7 +17,7 @@ export const getRoles = async (): Promise<any[]> => {
   return result.rows;
 };
 
-export const getEmployees = async (): Promise<any[]> => {
+export const getEmployees = async () => {
   const sql = `
     SELECT e.id, e.first_name, e.last_name, r.title AS role, d.name AS department, 
     CONCAT(m.first_name, ' ', m.last_name) AS manager
